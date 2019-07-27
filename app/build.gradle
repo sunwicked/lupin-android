@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 28
@@ -18,13 +20,13 @@ android {
             minifyEnabled true
             buildConfigField BOOLEAN, "LOG_ENABLED", 'false'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField STRING, "API_URL", '""'
+            buildConfigField STRING, "API_URL", '"http://starlord.hackerearth.com/"'
 
         }
         debug {
             versionNameSuffix ".debug"
             buildConfigField BOOLEAN, "LOG_ENABLED", 'true'
-            buildConfigField STRING, "API_URL", '""'
+            buildConfigField STRING, "API_URL", '"http://starlord.hackerearth.com/"'
         }
     }
 }
@@ -51,4 +53,8 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.android.support:design:28.0.0'
     testCompile 'junit:junit:4.12'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
